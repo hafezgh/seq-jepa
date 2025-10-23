@@ -116,18 +116,20 @@
 </section>
 
 
-<!-- Teaser video-->
+<!-- Teaser image-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <iframe src="assets/FIGURE_02.pdf" width="100%" height="550"></iframe>
+      <a href="assets/FIGURE_02_page-0001.jpg" target="_blank" rel="noopener">
+        <img src="assets/FIGURE_02_page-0001.jpg" alt="seq-JEPA Figure 02" style="width:100%;height:auto;"/>
+      </a>
       <h2 class="subtitle has-text-centered">
         Predict next-view representations from short action-conditioned sequences to jointly learn invariant and equivariant visual representations.
       </h2>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End teaser image -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -137,7 +139,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Joint-embedding self-supervised learning (SSL) commonly relies on transformations such as data augmentation and masking to learn visual representations. This is achieved by enforcing invariance or equivariance with respect to these transformations after encoding two views of an image. The dominant two-view paradigm in SSL often limits the flexibility of learned representations for downstream adaptation by creating performance trade-offs between high-level invariance-demanding tasks such as image classification and more fine-grained equivariance-related tasks. In this work, we propose \emph{seq-JEPA}, a world modeling framework that introduces architectural inductive biases into joint-embedding predictive architectures to resolve this trade-off. Without relying on dual equivariance predictors or loss terms, seq-JEPA simultaneously learns two architecturally segregated representations: one equivariant to specified transformations and another invariant to them. To do so, our model processes short sequences of different views (observations) of inputs. Each encoded view is concatenated with an embedding of the relative transformation (action) that produces the next observation in the sequence. These view-action pairs are passed through a transformer encoder that outputs an aggregate representation. A predictor head then conditions this aggregate representation on the upcoming action to predict the representation of the next observation. Empirically, seq-JEPA demonstrates strong performance on both equivariant and invariant benchmarks without sacrificing one for the other. Furthermore, it excels at tasks that inherently require aggregating a sequence of observations, such as path integration across actions and predictive learning across eye movements.
+            Joint-embedding self-supervised learning (SSL) commonly relies on transformations such as data augmentation and masking to learn visual representations that is achieved by enforcing invariance or equivariance with respect to these transformations after encoding two views of an image. This dominant two-view paradigm in SSL often limits the flexibility of learned representations for downstream adaptation by creating performance trade-offs between high-level invariance-demanding tasks such as image classification and more fine-grained equivariance-related tasks. In this work, we propose seq-JEPA, a world modeling framework that introduces architectural inductive biases into joint-embedding predictive architectures to resolve this trade-off. Without relying on dual equivariance predictors or loss terms, seq-JEPA simultaneously learns two architecturally segregated representations: one equivariant to specified transformations and another invariant to them. To do so, our model processes short sequences of different views (observations) of inputs. Each encoded view is concatenated with an embedding of the relative transformation (action) that produces the next observation in the sequence. These view-action pairs are passed through a transformer encoder that outputs an aggregate representation. A predictor head then conditions this aggregate representation on the upcoming action to predict the representation of the next observation. Empirically, seq-JEPA demonstrates strong performance on both equivariant and invariant benchmarks without sacrificing one for the other. Furthermore, it excels at tasks that inherently require aggregating a sequence of observations, such as path integration across actions and predictive learning across eye movements.
           </p>
         </div>
       </div>
@@ -153,21 +155,21 @@
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
-        <img src="assets/seqjepa_tweetprint_fig.jpg" alt="seq-JEPA overview"/>
+        <img src="assets/FIGURE_02_page-0001.jpg" alt="Architecture and training scheme"/>
         <h2 class="subtitle has-text-centered">
-          Model overview: action-conditioned autoregressive prediction learns invariant and equivariant features.
+          Architecture: action-conditioned autoregressive prediction over view sequences.
         </h2>
       </div>
       <div class="item">
-        <img src="assets/umap.png" alt="UMAP of learned representations"/>
+        <img src="assets/FIGURE_03_page-0001.jpg" alt="Invariant and equivariant performance"/>
         <h2 class="subtitle has-text-centered">
-          UMAP visualization of invariant vs equivariant embeddings.
+          Benchmarks: strong invariance and equivariance without trade-offs.
         </h2>
       </div>
       <div class="item">
-        <img src="assets/table1.png" alt="Benchmark results"/>
+        <img src="assets/inv_equi_performance_page-0001.jpg" alt="Additional evaluation results"/>
         <h2 class="subtitle has-text-centered">
-          Strong performance on both invariance and equivariance benchmarks.
+          Additional evaluations demonstrating sequence aggregation benefits.
         </h2>
       </div>
     </div>
@@ -184,19 +186,32 @@
 
 
 
-<!-- Paper poster -->
+<!-- Highlights grid (images only) -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="https://arxiv.org/pdf/2505.03176.pdf" width="100%" height="550">
-          </iframe>
-        
+      <h2 class="title">Highlights</h2>
+      <div class="columns is-variable is-8">
+        <div class="column">
+          <a href="assets/FIGURE_02_page-0001.jpg" target="_blank" rel="noopener">
+            <img src="assets/FIGURE_02_page-0001.jpg" alt="Model overview"/>
+          </a>
+        </div>
+        <div class="column">
+          <a href="assets/FIGURE_03_page-0001.jpg" target="_blank" rel="noopener">
+            <img src="assets/FIGURE_03_page-0001.jpg" alt="Results overview"/>
+          </a>
+        </div>
+        <div class="column">
+          <a href="assets/inv_equi_performance_page-0001.jpg" target="_blank" rel="noopener">
+            <img src="assets/inv_equi_performance_page-0001.jpg" alt="Invariant/Equivariant performance"/>
+          </a>
+        </div>
       </div>
     </div>
-  </section>
-<!--End paper poster -->
+  </div>
+</section>
+<!-- End highlights grid -->
 
 
 <!--BibTex citation -->

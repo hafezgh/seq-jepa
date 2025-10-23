@@ -7,7 +7,7 @@
   <meta name="description" content="seq-JEPA learns invariant and equivariant visual representations via autoregressive prediction over action-conditioned view sequences.">
   <meta property="og:title" content="seq-JEPA: Autoregressive Predictive Learning of Invariant-Equivariant World Models"/>
   <meta property="og:description" content="A world modeling framework that jointly learns invariant and equivariant representations without dual losses, excelling on both types of benchmarks and sequence tasks."/>
-  <meta property="og:url" content="https://arxiv.org/abs/2505.03176"/>
+  <meta property="og:url" content="https://hafezgh.github.io/seq-jepa/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="assets/seqjepa_tweetprint_fig.jpg" />
   <meta property="og:image:width" content="1200"/>
@@ -20,12 +20,12 @@
   <meta name="twitter:image" content="assets/seqjepa_tweetprint_fig.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="seq-JEPA, JEPA, self-supervised learning, invariance, equivariance, world model, autoregressive, transformer, predictive coding, computer vision">
+  <meta name="keywords" content="self-supervised learning, world models, computer vision">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
   <title>seq-JEPA</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -56,17 +56,22 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="#" target="_blank">Hafez Ghaemi</a>,</span>
+                <a href="https://scholar.google.com/citations?user=JCLX6oYAAAAJ&hl=en" target="_blank">Hafez Ghaemi</a><sup>1,2,3</sup>,</span>
                 <span class="author-block">
-                  <a href="#" target="_blank">Eilif Muller</a>,</span>
-                  <span class="author-block">
-                    <a href="#" target="_blank">Shahab Bakhtiari</a>
-                  </span>
-                  </div>
+                  <a href="https://scholar.google.com/citations?user=r4-NZhwAAAAJ&hl=en" target="_blank">Eilif B. Muller</a><sup>*,1,2,3</sup>,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=f_JDOhEAAAAJ&hl=en" target="_blank">Shahab Bakhtiari</a><sup>*,1,2</sup>
+                </span>
+            </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">arXiv, 2025</span>
-                  </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup> Université de Montréal, <sup>2</sup> Mila - Quebec AI Institute, <sup>3</sup> Centre de Recherche Azrieli du CHU Sainte-Justine</span>
+              <span class="eql-cntrb"><small><br><sup>*</sup> Equal Contribution</small></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">NeurIPS 2025</span>
+            </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
@@ -115,11 +120,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="assets/seqjepa_tweetprint_fig.jpg" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
+      <iframe src="assets/FIGURE_02.pdf" width="100%" height="550"></iframe>
       <h2 class="subtitle has-text-centered">
         Predict next-view representations from short action-conditioned sequences to jointly learn invariant and equivariant visual representations.
       </h2>
@@ -136,7 +137,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Current self-supervised algorithms commonly rely on transformations such as data augmentation and masking to learn visual representations, enforcing invariance or equivariance after encoding two views of an image. This dominant two-view paradigm often limits downstream flexibility by creating trade-offs between invariance-demanding tasks (e.g., classification) and fine-grained equivariance-related tasks. We propose seq-JEPA, a world modeling framework that introduces architectural inductive biases into joint-embedding predictive architectures to resolve this trade-off. Without dual equivariance predictors or losses, seq-JEPA simultaneously learns two segregated representations: one equivariant to specified transformations and another invariant to them. The model processes short sequences of different views, concatenating each encoded view with an embedding of the relative transformation (action) that produces the next observation. A transformer encoder outputs an aggregate representation, and a predictor head conditions this representation on the upcoming action to predict the next observation’s representation. Empirically, seq-JEPA achieves strong performance on both equivariant and invariant benchmarks and excels at sequence-requiring tasks like path integration and predictive learning across eye movements.
+            Joint-embedding self-supervised learning (SSL) commonly relies on transformations such as data augmentation and masking to learn visual representations. This is achieved by enforcing invariance or equivariance with respect to these transformations after encoding two views of an image. The dominant two-view paradigm in SSL often limits the flexibility of learned representations for downstream adaptation by creating performance trade-offs between high-level invariance-demanding tasks such as image classification and more fine-grained equivariance-related tasks. In this work, we propose \emph{seq-JEPA}, a world modeling framework that introduces architectural inductive biases into joint-embedding predictive architectures to resolve this trade-off. Without relying on dual equivariance predictors or loss terms, seq-JEPA simultaneously learns two architecturally segregated representations: one equivariant to specified transformations and another invariant to them. To do so, our model processes short sequences of different views (observations) of inputs. Each encoded view is concatenated with an embedding of the relative transformation (action) that produces the next observation in the sequence. These view-action pairs are passed through a transformer encoder that outputs an aggregate representation. A predictor head then conditions this aggregate representation on the upcoming action to predict the representation of the next observation. Empirically, seq-JEPA demonstrates strong performance on both equivariant and invariant benchmarks without sacrificing one for the other. Furthermore, it excels at tasks that inherently require aggregating a sequence of observations, such as path integration across actions and predictive learning across eye movements.
           </p>
         </div>
       </div>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="seq-JEPA learns invariant and equivariant visual representations via autoregressive prediction over action-conditioned view sequences.">
+  <meta property="og:title" content="seq-JEPA: Autoregressive Predictive Learning of Invariant-Equivariant World Models"/>
+  <meta property="og:description" content="A world modeling framework that jointly learns invariant and equivariant representations without dual losses, excelling on both types of benchmarks and sequence tasks."/>
+  <meta property="og:url" content="https://hafezgh.github.io/seq-jepa/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="assets/seqjepa_tweetprint_fig.jpg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="seq-JEPA: Invariant + Equivariant World Models">
+  <meta name="twitter:description" content="Autoregressive JEPA that predicts next-view representations conditioned on actions to learn both invariance and equivariance.">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="assets/seqjepa_tweetprint_fig.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="self-supervised learning, world models, computer vision">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>seq-JEPA</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">seq-JEPA: Autoregressive Predictive Learning of Invariant-Equivariant World Models</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=JCLX6oYAAAAJ&hl=en" target="_blank">Hafez Ghaemi</a><sup>1,2,3</sup>,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=r4-NZhwAAAAJ&hl=en" target="_blank">Eilif B. Muller</a><sup>*,1,2,3</sup>,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=f_JDOhEAAAAJ&hl=en" target="_blank">Shahab Bakhtiari</a><sup>*,1,2</sup>
+                </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup> Université de Montréal, <sup>2</sup> Mila - Quebec AI Institute, <sup>3</sup> Centre de Recherche Azrieli du CHU Sainte-Justine</span>
+              <span class="eql-cntrb"><small><br><sup>*</sup> Equal Contribution</small></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">NeurIPS 2025</span>
+            </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2505.03176.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/hafezgh/seq-jepa" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2505.03176" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser image-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <a href="assets/FIGURE_02_page-0001.jpg" target="_blank" rel="noopener">
+        <img src="assets/FIGURE_02_page-0001.jpg" alt="seq-JEPA Figure 02" style="width:100%;height:auto;"/>
+      </a>
+      <h2 class="subtitle has-text-centered">
+        Predict next-view representations from short action-conditioned sequences to jointly learn invariant and equivariant visual representations.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser image -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Joint-embedding self-supervised learning (SSL) commonly relies on transformations such as data augmentation and masking to learn visual representations that is achieved by enforcing invariance or equivariance with respect to these transformations after encoding two views of an image. This dominant two-view paradigm in SSL often limits the flexibility of learned representations for downstream adaptation by creating performance trade-offs between high-level invariance-demanding tasks such as image classification and more fine-grained equivariance-related tasks. In this work, we propose seq-JEPA, a world modeling framework that introduces architectural inductive biases into joint-embedding predictive architectures to resolve this trade-off. Without relying on dual equivariance predictors or loss terms, seq-JEPA simultaneously learns two architecturally segregated representations: one equivariant to specified transformations and another invariant to them. To do so, our model processes short sequences of different views (observations) of inputs. Each encoded view is concatenated with an embedding of the relative transformation (action) that produces the next observation in the sequence. These view-action pairs are passed through a transformer encoder that outputs an aggregate representation. A predictor head then conditions this aggregate representation on the upcoming action to predict the representation of the next observation. Empirically, seq-JEPA demonstrates strong performance on both equivariant and invariant benchmarks without sacrificing one for the other. Furthermore, it excels at tasks that inherently require aggregating a sequence of observations, such as path integration across actions and predictive learning across eye movements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="assets/FIGURE_02_page-0001.jpg" alt="Architecture and training scheme"/>
+        <h2 class="subtitle has-text-centered">
+          Architecture: action-conditioned autoregressive prediction over view sequences.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="assets/FIGURE_03_page-0001.jpg" alt="Invariant and equivariant performance"/>
+        <h2 class="subtitle has-text-centered">
+          Benchmarks: strong invariance and equivariance without trade-offs.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="assets/inv_equi_performance_page-0001.jpg" alt="Additional evaluation results"/>
+        <h2 class="subtitle has-text-centered">
+          Additional evaluations demonstrating sequence aggregation benefits.
+        </h2>
+      </div>
+    </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+
+
+
+
+
+
+<!-- Highlights grid (images only) -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Highlights</h2>
+      <div class="columns is-variable is-8">
+        <div class="column">
+          <a href="assets/FIGURE_02_page-0001.jpg" target="_blank" rel="noopener">
+            <img src="assets/FIGURE_02_page-0001.jpg" alt="Model overview"/>
+          </a>
+        </div>
+        <div class="column">
+          <a href="assets/FIGURE_03_page-0001.jpg" target="_blank" rel="noopener">
+            <img src="assets/FIGURE_03_page-0001.jpg" alt="Results overview"/>
+          </a>
+        </div>
+        <div class="column">
+          <a href="assets/inv_equi_performance_page-0001.jpg" target="_blank" rel="noopener">
+            <img src="assets/inv_equi_performance_page-0001.jpg" alt="Invariant/Equivariant performance"/>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End highlights grid -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{ghaemi2025seqjepa,
+  title={seq-JEPA: Autoregressive Predictive Learning of Invariant-Equivariant World Models},
+  author={Ghaemi, Hafez and Muller, Eilif and Bakhtiari, Shahab},
+  journal={Advances in neural information processing systems},
+  year={2025},
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>

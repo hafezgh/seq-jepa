@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="seq-JEPA learns invariant and equivariant visual representations via autoregressive prediction over action-conditioned view sequences.">
+  <meta property="og:title" content="seq-JEPA: Autoregressive Predictive Learning of Invariant-Equivariant World Models"/>
+  <meta property="og:description" content="A world modeling framework that jointly learns invariant and equivariant representations without dual losses."/>
+  <meta property="og:url" content="https://hafezgh.github.io/seq-jepa/"/>
+  <meta property="og:image" content="assets/inv-equi_exp.jpg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:title" content="seq-JEPA: Invariant + Equivariant World Models">
+  <meta name="twitter:description" content="Autoregressive JEPA that predicts next-view representations conditioned on actions.">
+  <meta name="twitter:image" content="assets/inv-equi_exp.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="self-supervised learning, world models, computer vision, equivariance, JEPA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>seq-JEPA</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">seq-JEPA: Autoregressive Predictive Learning of Invariant-Equivariant World Models</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=JCLX6oYAAAAJ&hl=en" target="_blank">Hafez Ghaemi</a><sup>1,2,3</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=r4-NZhwAAAAJ&hl=en" target="_blank">Eilif B. Muller</a><sup>*,1,2,3</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=f_JDOhEAAAAJ&hl=en" target="_blank">Shahab Bakhtiari</a><sup>*,1,2</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup> Université de Montréal, <sup>2</sup> Mila - Quebec AI Institute, <sup>3</sup> CHU Sainte-Justine</span>
+              <span class="eql-cntrb"><small><br><sup>*</sup> Equal Contribution</small></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><strong>NeurIPS 2025</strong></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://openreview.net/forum?id=GKt3VRaCU1" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-open-access"></i></span>
+                    <span>OpenReview</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2505.03176" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/hafezgh/seq-jepa" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/Hafez/seq-JEPA" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">🤗</span>
+                    <span>Models</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Summary -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="assets/inv-equi_exp.jpg" alt="seq-JEPA Visual Summary" style="width:100%;height:auto;"/>
+        <p class="has-text-centered" style="margin-top: 0.75rem; font-size: 0.95rem;">
+          <strong>Key idea:</strong> By processing views sequentially with action conditioning, seq-JEPA naturally segregates representations for equivariance- and invariance-demanding tasks.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Figure -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <img src="assets/seq-jepa_schem.jpg" alt="seq-JEPA Architecture" style="width:100%;height:auto;"/>
+          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+            <strong>seq-JEPA</strong> processes short sequences of views, each concatenated with action embeddings, through a transformer encoder. The aggregate representation is conditioned on the next action to predict the upcoming view's representation.
+          </h2>
+        </div>
+      </div>
+      <div class="columns is-centered" style="margin-top: 2rem;">
+        <div class="column is-10">
+          <img src="assets/FIGURE_03_page-0001.jpg" alt="Main Results" style="width:100%;"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Joint-embedding self-supervised learning (SSL) often creates trade-offs between coarse-grained invariance-demanding tasks (e.g., classification) and fine-grained equivariance-demanding tasks. <strong>seq-JEPA</strong> resolves this by introducing architectural inductive biases that simultaneously learn two segregated representations for both equivariance- and invariance-demanding tasks without dual loss terms. Our model processes short sequences of views concatenated with relative transformation embeddings through a transformer encoder. A predictor conditioned on the upcoming action predicts the next observation's representation. seq-JEPA excels on both invariance-demanding and equivariance-demanding downstream tasks and can perform sequence aggregation for path integration across actions and predictive learning across eye movements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+
+      <div class="columns is-centered" style="margin-bottom: 2rem;">
+        <div class="column is-10">
+          <p class="has-text-centered" style="margin-bottom: 0.75rem; font-size: 0.95rem;">
+            Evaluation on 3DIEBench: classification accuracy (invariance-demanding) and rotation prediction R² (equivariance-demanding). seq-JEPA achieves strong performance on both tasks simultaneously.
+          </p>
+          <img src="assets/table1.jpg" alt="Benchmark Comparison" style="width:100%;"/>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-6">
+          <img src="assets/umap.jpeg" alt="UMAP Visualization" style="width:100%;"/>
+          <p class="has-text-centered" style="margin-top: 0.75rem; font-size: 0.95rem;">
+            <strong>UMAP visualization</strong> of seq-JEPA's encoder representations. Color gradient shows equivariant structure over rotation angle.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{
+ghaemi2025seqjepa,
+title={seq-{JEPA}: Autoregressive Predictive Learning of Invariant-Equivariant World Models},
+author={Hafez Ghaemi and Eilif Benjamin Muller and Shahab Bakhtiari},
+booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},
+year={2025},
+url={https://openreview.net/forum?id=GKt3VRaCU1}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              Template from <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

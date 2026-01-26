@@ -18,10 +18,11 @@
 
 Pre-trained seq-JEPA checkpoints for 3DIEBench and STL10 (PLS) are available on HuggingFace:
 
-| Dataset | Checkpoint |
+| Dataset | Link |
 |---------|------------|
-| 3DIEBench | [🤗 HuggingFace](https://huggingface.co/Hafez/seq-JEPA) |
-| STL10 (PLS) | [🤗 HuggingFace](https://huggingface.co/Hafez/seq-JEPA) |
+| 3DIEBench (rotation) - train seq len = 3 | [🤗 HuggingFace](https://huggingface.co/Hafez/seq-JEPA) |
+| 3DIEBench (rotation and color) - train seq len = 4 | [🤗 HuggingFace](https://huggingface.co/Hafez/seq-JEPA) |
+| STL10 (PLS) train seq len = 4| [🤗 HuggingFace](https://huggingface.co/Hafez/seq-JEPA) |
 
 ## Installation
 

@@ -223,18 +223,24 @@ def main(args):
         emb_dim = model.res_out_dim
     else:
         raise ValueError(f"Unknown method: {args.method}")
-
+    
+    model.online_linprobe = nn.Sequential(nn.Linear(emb_dim, num_classes))
+    model.online_equiprobe = nn.Sequential(
+                nn.Linear(model.res_out_dim*2,1024),
+                nn.ReLU(),
+                nn.Linear(1024,1024),
+                nn.ReLU(),
+                nn.Linear(1024, act_latentdim),)
+    
     if args.is_eval == False:
-        model.online_linprobe = nn.Sequential(nn.Linear(emb_dim, num_classes))
-        model.online_equiprobe = nn.Sequential(
-                    nn.Linear(model.res_out_dim*2,1024),
-                    nn.ReLU(),
-                    nn.Linear(1024,1024),
-                    nn.ReLU(),
-                    nn.Linear(1024, act_latentdim),)
         model = model.to(device)
         optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=0.0)
+        if load_path is not None:
+            model.load_state_dict(load_dict['model'])
     else:
+        assert load_path is not None, "Load path is required for evaluation"
+        model.load_state_dict(load_dict['model'])
+        print("Model loaded!")
         model.add_probes(args.latent_type)
         model = model.to(device)
         param_weights = []
@@ -249,13 +255,6 @@ def main(args):
         optimizer = optim.AdamW(parameters, lr=args.lr)
         learnable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
         print(f"Number of learnable parameters: {learnable_params}")
-
-    if load_path is not None:
-        model.load_state_dict(load_dict['model'])
-        if args.is_eval == False:
-            optimizer.load_state_dict(load_dict['optimizer'])
-            print("Optimizer loaded!")
-        print("Model loaded!")
         
     if args.scheduler and args.is_eval == False:
         lr_scheduler = CosineAnnealingLR(optimizer, T_max=args.epochs, eta_min=args.initial_lr)
@@ -279,7 +278,7 @@ def main(args):
                 wandb.login()
             id_ = wandb.util.generate_id()
             run_id = f"wandbid-{id_}_" + run_id
-            wandb_logger = wandb.init(name=run_id, id=run_id, config=config_dict)
+            wandb_logger = wandb.init(project="neurips_2025_seqjepa", name=run_id, id=run_id, config=config_dict)
             print("Wandb initialized!")
             
             

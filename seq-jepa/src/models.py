@@ -273,7 +273,7 @@ class SeqJEPA_Transforms(nn.Module):
     def add_probes(self, latent_type, val_len=3):
         for param in self.parameters():
             param.requires_grad = False
-        dim = self.res_out_dim
+        dim = self.res_out_dim*2
         if latent_type == "aug":
             self.blur_regressor = nn.Linear(dim, 1)
             self.crop_regressor = nn.Sequential(
